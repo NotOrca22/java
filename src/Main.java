@@ -7,6 +7,9 @@ public class Main {
         return centimeters;
     }
     public static void main(String[] args) {
+        for (int i = 1; i<6; i++) {
+            System.out.println("This is iteration " + i + ".");
+        }
         boolean gameOver = true;
         int score = 800;
         int levelCompleted = 5;
@@ -25,6 +28,32 @@ public class Main {
         System.out.println(i);
         double cm = calcInchAndFeetToCentimeter(5,-10);
         System.out.println(cm);
+        String x = getDurationString(75, 3);
+        System.out.println(x);
+        int value = 3;
+        switch(value) {
+            case 1:
+                System.out.println("Value was 1");
+                break;
+            case 2:
+                System.out.println("Value was 2");
+                break;
+            case 3: case 4: case 5:
+                System.out.println("Value was 3,4, or 5");
+                break;
+            default:
+                System.out.println("Value was 3");
+                break;
+        }
+        String month = "jAnUaRy";
+        switch(month) {
+            case "january":
+                System.out.println("yes");
+                break;
+            default:
+                System.out.println("no");
+                break;
+        }
         // Create a method called displayHighScorePosition
         // it should a players name as a parameter, and a 2nd parameter as a position in the high score table
         // You should display the players name along with a message like " managed to get into position " and the
@@ -86,7 +115,7 @@ public class Main {
             position = 1;
         } else if(playerScore >= 500) {
             position = 2;
-        } else if(playerScore >= 100); {
+        } else if(playerScore >= 100) {
             position = 3;
         }
 
@@ -113,5 +142,25 @@ public class Main {
 
         return "-1";
     }
-    public static
+    private static String getDurationString(long minutes, long seconds) {
+        if((minutes < 0) || (seconds <0) || (seconds > 59)) {
+            return "Invalid value";
+        }
+
+        long hours = minutes / 60;
+        long remainingMinutes = minutes % 60;
+        return hours + "h " +remainingMinutes + "m " + seconds + "s";
+    }
+
+    private static String getDurationString(long seconds) {
+        if(seconds < 0) {
+            return "Invalid value";
+        }
+
+        long minutes = seconds / 60;
+        long remainingSeconds = seconds % 60;
+
+        return getDurationString(minutes, remainingSeconds);
+    }
+    int value = 3;
 }
